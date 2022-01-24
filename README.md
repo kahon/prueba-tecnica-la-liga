@@ -43,6 +43,7 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
     9 | export declare const DEFAULT_OPTIONS: Options;
     10 | /**
 ```
-Este error se produce porque el proyecto está usando el paquete **3.7.2** de `typescript`, pero el paquete `pretty-format` utiliza una sintaxis nueva de typescript que está disponible a partir del paquete **3.8** para arriba.
 
-ERROR SOLUCIONADO instalando el paquete **3.9.10** de `typescript`.
+> Este error se produce porque el proyecto está usando el paquete **3.7.2** de `typescript`, pero el paquete `pretty-format` utiliza una sintaxis nueva de typescript que está disponible a partir del paquete **3.8** para arriba.
+
+> ERROR SOLUCIONADO instalando el paquete **3.9.10** de `typescript`.
