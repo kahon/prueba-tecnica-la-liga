@@ -23,5 +23,6 @@ Al hacer el `npm install` me he encontrado con 13 vulnerabilidades altas y una c
 
 ### Solucionar vulnerabilidades
 - [x] He ejecutado `npm audit fix --force` y sigue sin solucionarse.
-- [] Ejecuto `npm update` para comprobar si al actualizar los paquetes se solucionan las vulnerabilidades
+- [x] Ejecuto `npm update` para comprobar si al actualizar los paquetes se solucionan las vulnerabilidades. Pero siguen sin solucionarse las vulnerabilidades.
+> Como es un proyecto de prueba vamos a considerar este paso como un paso que no es crítico. Si estuviesemos en un proyecto que se desarrolla para un entorno de producción habría que analizar mejor las versiones de los paquetes y comprobar donde se encuentran las vulnerabilidades y como podría afertar estas al proyecto. Y así también como podemos resolver estas.
 
