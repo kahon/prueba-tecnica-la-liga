@@ -30,16 +30,19 @@ Al hacer el `npm install` me he encontrado con 13 vulnerabilidades altas y una c
 - He eliminado todos los carets de las versiones del `package.json` para evitar que cualquier update de algún paquete pueda romper el funcionamiento de la app.
 - Al ejecutar `npm start` he obtenido el siguiente error de compilación:
     Failed to compile.
+```
+C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnica-front-v3/node_modules/pretty-format/build/index.d.ts
+TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnica-front-v3/node_modules/pretty-format/build/index.d.ts(7,13):
+'=' expected.  TS1005
 
-    C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnica-front-v3/node_modules/pretty-format/build/index.d.ts
-    TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnica-front-v3/node_modules/pretty-format/build/index.d.ts(7,13):
-    '=' expected.  TS1005
-
-     5 |  * LICENSE file in the root directory of this source tree.
-     6 |  */
-     7 | import type { NewPlugin, Options, OptionsReceived } from './types';
-       |             ^
-     8 | export type { Colors, CompareKeys, Config, Options, OptionsReceived, OldPlugin, NewPlugin, Plugin, Plugins, PrettyFormatOptions, Printer, Refs, Theme, } from './types';
-     9 | export declare const DEFAULT_OPTIONS: Options;
+    5 |  * LICENSE file in the root directory of this source tree.
+    6 |  */
+    7 | import type { NewPlugin, Options, OptionsReceived } from './types';
+    |             ^
+    8 | export type { Colors, CompareKeys, Config, Options, OptionsReceived, OldPlugin, NewPlugin, Plugin, Plugins, PrettyFormatOptions, Printer, Refs, Theme, } from './types';
+    9 | export declare const DEFAULT_OPTIONS: Options;
     10 | /**
+```
+Este error se produce porque el proyecto está usando el paquete **3.7.2** de `typescript`, pero el paquete `pretty-format` utiliza una sintaxis nueva de typescript que está disponible a partir del paquete **3.8** para arriba.
 
+ERROR SOLUCIONADO instalando el paquete **3.9.10** de `typescript`.
