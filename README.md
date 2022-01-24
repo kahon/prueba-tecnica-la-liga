@@ -18,4 +18,10 @@ Entorno de desarrollo
 
 ## Memoria
 
-*** Puedes documentar aquí la memoria de tu prueba ***
+## Preparando entorno de desarrollo
+Al hacer el `npm install` me he encontrado con 13 vulnerabilidades altas y una critica. Y tras ejecutar el comando `npm audit fix` sigue teniendo las mismas vulnerabilidades.
+
+### Solucionar vulnerabilidades
+- [x] He ejecutado `npm audit fix --force` y sigue sin solucionarse.
+- [] Ejecuto `npm update` para comprobar si al actualizar los paquetes se solucionan las vulnerabilidades
+
