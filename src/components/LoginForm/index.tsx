@@ -1,7 +1,6 @@
 import Button from "components/Button";
 import InputText from "components/InputText";
-import React, { useRef } from "react";
-import styled from "styled-components";
+import React from "react";
 
 const LoginForm = () => {
   return (
