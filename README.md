@@ -22,17 +22,17 @@ Entorno de desarrollo
 
 ## Memoria
 
-## Preparando entorno de desarrollo
+### **Preparando entorno de desarrollo**
 
 Al hacer el `npm install` me he encontrado con 13 vulnerabilidades altas y una critica. Y tras ejecutar el comando `npm audit fix` sigue teniendo las mismas vulnerabilidades.
 
-### Solucionar vulnerabilidades
+#### **Solucionar vulnerabilidades**
 
 - He ejecutado `npm audit fix --force` y sigue sin solucionarse.
 - Ejecuto `npm update` para comprobar si al actualizar los paquetes se solucionan las vulnerabilidades. Pero siguen sin solucionarse las vulnerabilidades.
   > Como es un proyecto de prueba vamos a considerar este paso como un paso que no es crítico. Si estuviesemos en un proyecto que se desarrolla para un entorno de producción habría que analizar mejor las versiones de los paquetes y comprobar donde se encuentran las vulnerabilidades y como podría afertar estas al proyecto. Y así también como podemos resolver estas.
 
-### Acciones en la preparación
+#### **Acciones en la preparación**
 
 - He eliminado todos los carets de las versiones del `package.json` para evitar que cualquier update de algún paquete pueda romper el funcionamiento de la app.
 - Al ejecutar `npm start` he obtenido el siguiente error de compilación:
@@ -56,7 +56,12 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 
 > ERROR SOLUCIONADO instalando el paquete **3.9.10** de `typescript`.
 
-### Estructuración del proyecto
+#### ** Paquetes instalados **
+
+- `typescript 3.9.10`: instalado para arreglar un bug del proyecto
+- `styled-components`: instalado por requisito del proyecto.
+
+#### **Estructuración del proyecto**
 
 He reestructurado el proyecto creando las carpetas `src/components` y `src/containers`.
 
@@ -65,16 +70,31 @@ He reestructurado el proyecto creando las carpetas `src/components` y `src/conta
 
 Para una mejor comprensión del código y facilidad en el uso de las importaciones, he configurado el parámetro `baseUrl` en el `tsconfig.json`. De este modo las importaciones de los componentes se hacen todas relativas a la carpeta `./src/` evitando importaciones del estilo `../../`.
 
-### Creación del Interfaz
+#### **Creación del Interfaz**
 
-He instalado el paquete `styled-components` para poder crear el estilo de cada componente según se exige en la prueba.
+Los estilos los estoy creando todos con styled-components. Solo me gustaría comentar que he añadido lo que sería una configuración global de los estilos en el `index.html` en la etiqueta `<style>` del `<head>`.
 
-### Servicios para la API
+```
+      * {
+        margin: 0;
+        padding: 0;
+      }
+```
+
+De este modo evito que hayan padding automáticos o márgenes automáticos que desajusten tanto la vista en escritorio como en móvil. Y todos los márgenes y paddings son ordenados desde cada elemento de forma manual.
+
+#### **Servicios para la API**
 
 He creado una carpeta de services y dentro una carpeta API.
 
 - userAPI: contiene todas las funciones para hacer las llamadas al login y a la Api de usuarios. Definida interfaz UserLogin para hacer las llamadas a la API.
 
-#### Login
+##### **Login**
 
 He definido dos pruebas unitarias para comprobar que la función no falla.
+
+### **Funcionalidades a Desarrollar**
+
+#### Login
+
+1 API

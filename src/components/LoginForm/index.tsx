@@ -2,12 +2,24 @@ import Button from "components/Button";
 import InputText from "components/InputText";
 import React, { useRef } from "react";
 import { UserLogin, usersAPI } from "services/API/usersAPI";
+import styled from "styled-components";
 
+/**
+ * @returns componente React, form para hacer el login de usuario
+ */
 const LoginForm = () => {
+  /**
+   *  Referencias para obtener el usuario y la contraseña
+   *  de los input
+   */
   const refs = {
     username: useRef<HTMLInputElement | null>(null),
     password: useRef<HTMLInputElement | null>(null),
   };
+
+  /**
+   * Obtiene el nombre de usuario del input
+   */
   function getUsername(): string {
     if (refs.username.current) {
       return refs.username.current.value.toString();
@@ -16,6 +28,9 @@ const LoginForm = () => {
     }
   }
 
+  /**
+   * Obtiene el password del input
+   */
   function getPassword(): string {
     if (refs.password.current) {
       return refs.password.current.value.toString();
@@ -23,31 +38,53 @@ const LoginForm = () => {
       return "";
     }
   }
+
+  /**
+   * Obtiene el usuario y la contraseña de los inputs y genera un usuario
+   * @returns devuelve el usuario para hacer el login
+   */
   function getUserForm(): UserLogin {
     return {
       username: getUsername(),
       password: getPassword(),
     };
   }
+
+  /**
+   * hace el login
+   */
+  function login(): void {
+    usersAPI
+      .login(getUserForm())
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  /**
+   * Estilo del form
+   */
+  const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 15rem;
+  `;
+
   return (
-    <form>
+    <StyledForm
+      onSubmit={(e) => {
+        e.preventDefault();
+        login();
+      }}
+    >
       <InputText placeholder="username" ref={refs.username} />
       <InputText placeholder="password" ref={refs.password} />
-      <Button
-        onClick={() => {
-          usersAPI
-            .login(getUserForm())
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((err) => {
-              alert(err);
-            });
-        }}
-      >
-        Login
-      </Button>
-    </form>
+      <Button>Iniciar Sesión</Button>
+    </StyledForm>
   );
 };
 
