@@ -35,9 +35,14 @@ const LoginForm = () => {
       <InputText placeholder="password" ref={refs.password} />
       <Button
         onClick={() => {
-          usersAPI.login(getUserForm()).then((response) => {
-            console.log(response);
-          });
+          usersAPI
+            .login(getUserForm())
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((err) => {
+              alert(err);
+            });
         }}
       >
         Login
