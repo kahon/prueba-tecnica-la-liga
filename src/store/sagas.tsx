@@ -4,11 +4,13 @@ import { ACTIONS } from "./actions";
 
 function* loginUser(action) {
   try {
+    console.log(action.payload.user);
     const token = yield call(usersAPI.login, action.payload.user);
-    if (token.hasOwnProperty("error")) {
-      yield put({ type: ACTIONS.API.LOGIN_ERROR, token });
-      return;
-    }
+    console.log(token);
+    // if (token.hasOwnProperty("error")) {
+    //   yield put({ type: ACTIONS.API.LOGIN_ERROR, token });
+    //   return;
+    // }
     yield put({ type: ACTIONS.API.LOGIN_RECEIVED_TOKEN, token });
   } catch (e) {
     yield put({ type: ACTIONS.API.LOGIN_ERROR, e });

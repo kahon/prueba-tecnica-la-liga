@@ -10,9 +10,11 @@ export function apiReducer(state = initialState, action) {
     case ACTIONS.API.LOGIN_REQUEST:
       return { ...state, loading: true };
     case ACTIONS.API.LOGIN_RECEIVED_TOKEN:
-      return { ...state, loading: false, token: action.payload.token };
+      console.log("entra");
+      console.log(action);
+      return { ...state, loading: false, token: action.token };
     case ACTIONS.API.LOGIN_ERROR:
-      return { ...state, loading: false, error: action.payload.error };
+      return { ...state, loading: false, error: action.error };
     default:
       return { ...state };
   }
