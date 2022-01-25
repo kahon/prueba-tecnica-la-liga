@@ -13,7 +13,15 @@ const App = () => {
       <Router>
         <Button
           onClick={() => {
-            store.dispatch({ type: ACTIONS.API.LOGIN_REQUEST });
+            store.dispatch({
+              type: ACTIONS.API.LOGIN_REQUEST,
+              payload: {
+                user: {
+                  username: "eve.holt@reqres.in",
+                  password: "cityslicka",
+                },
+              },
+            });
           }}
         >
           Test Redux

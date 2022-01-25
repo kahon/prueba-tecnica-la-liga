@@ -20,5 +20,5 @@ function* loginUserSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([loginUserSaga]);
+  yield all([loginUserSaga()]);
 }
