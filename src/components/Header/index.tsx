@@ -1,11 +1,11 @@
 import React from "react";
+import Wrapper from "./Wrapper";
 
 const Header = () => {
   return (
-    <header>
+    <Wrapper>
       <p>Prueba técnica de LaLiga</p>
-    </header>
+    </Wrapper>
   );
 };
-
 export { Header };
