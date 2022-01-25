@@ -64,3 +64,13 @@ He reestructurado el proyecto creando las carpetas `src/components` y `src/conta
 - Dentro de la carpeta `containers` van los componentes que son páginas. Y se estructura también en carpetas por cada 'container'. Siendo la estructura similar a la descrita para los componentes.
 
 Para una mejor comprensión del código y facilidad en el uso de las importaciones, he configurado el parámetro `baseUrl` en el `tsconfig.json`. De este modo las importaciones de los componentes se hacen todas relativas a la carpeta `./src/` evitando importaciones del estilo `../../`.
+
+### Servicios para la API
+
+He creado una carpeta de services y dentro una carpeta API.
+
+- userAPI: contiene todas las funciones para hacer las llamadas al login y a la Api de usuarios.
+
+#### Login
+
+He definido dos pruebas unitarias para comprobar que la función no falla.
