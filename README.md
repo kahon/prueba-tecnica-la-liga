@@ -60,6 +60,7 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 
 - `typescript 3.9.10`: instalado para arreglar un bug del proyecto
 - `styled-components`: instalado por requisito del proyecto.
+- `redux-devtools-extension`: para poder hacer debugging del estado de redux
 
 #### **Estructuración del proyecto**
 

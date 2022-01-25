@@ -4,9 +4,13 @@ interface UserLogin {
   username: string;
   password: string;
 }
+interface LoginResult {
+  token?: string;
+  error?: string;
+}
 
 const usersAPI = {
-  login: async (user: UserLogin) => {
+  login: async (user: UserLogin): Promise<LoginResult> => {
     const response = await fetch(URLS.LOGIN, {
       method: "POST",
       headers: {
@@ -15,10 +19,10 @@ const usersAPI = {
       body: JSON.stringify(user),
     });
 
-    const data = await response.json();
+    const data: LoginResult = await response.json();
     return data;
   },
 };
 
-export type { UserLogin };
+export type { UserLogin, LoginResult };
 export { usersAPI, URLS };
