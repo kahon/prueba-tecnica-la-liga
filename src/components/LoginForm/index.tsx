@@ -30,7 +30,7 @@ const LoginForm = () => {
     };
   }
   return (
-    <>
+    <form>
       <InputText placeholder="username" ref={refs.username} />
       <InputText placeholder="password" ref={refs.password} />
       <Button
@@ -47,7 +47,7 @@ const LoginForm = () => {
       >
         Login
       </Button>
-    </>
+    </form>
   );
 };
 
