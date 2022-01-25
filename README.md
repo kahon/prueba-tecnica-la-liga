@@ -63,4 +63,4 @@ He reestructurado el proyecto creando las carpetas `src/components` y `src/conta
 - Dentro de la carpeta `components` he creado una carpeta para cada componente. En esta carpeta se encuentra el estilo del componente y el componente dentro del fichero `index.tsx`. Además he incluido una carpeta `tests` donde se incluyen los test unitarios de el componente específico.
 - Dentro de la carpeta `containers` van los componentes que son páginas. Y se estructura también en carpetas por cada 'container'. Siendo la estructura similar a la descrita para los componentes.
 
-Para una mejor comprensión del código y facilidad en el uso de las importaciones importaciones, he configurado el parámetro `baseUrl` en el `tsconfig.json`. De este modo las importaciones de los componentes se hacen todas relativas a la carpeta `./src/` evitando importaciones del estilo `../../`.
+Para una mejor comprensión del código y facilidad en el uso de las importaciones, he configurado el parámetro `baseUrl` en el `tsconfig.json`. De este modo las importaciones de los componentes se hacen todas relativas a la carpeta `./src/` evitando importaciones del estilo `../../`.
