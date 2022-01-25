@@ -5,6 +5,16 @@ import { UserLogin, usersAPI } from "services/API/usersAPI";
 import styled from "styled-components";
 
 /**
+ * Estilo del form
+ */
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 15rem;
+`;
+
+/**
  * @returns componente React, form para hacer el login de usuario
  */
 const LoginForm = () => {
@@ -63,16 +73,6 @@ const LoginForm = () => {
         alert(err);
       });
   }
-
-  /**
-   * Estilo del form
-   */
-  const StyledForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    max-width: 15rem;
-  `;
 
   return (
     <StyledForm

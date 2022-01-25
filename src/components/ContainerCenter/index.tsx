@@ -1,5 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+
+/**
+ * Estilo del div del container
+ */
+const StyledDiv = styled.div`
+  height: 60vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  align-content: center;
+`;
+
 /**
  * Este componente centra los componentes hijos dentro de él
  * en el centro de la pantalla horizontalmente
@@ -7,13 +19,6 @@ import styled from "styled-components";
  * los elementos más cercanos al top
  */
 const ContainerCenter = ({ children }) => {
-  const StyledDiv = styled.div`
-    height: 60vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    align-content: center;
-  `;
   return <StyledDiv>{children}</StyledDiv>;
 };
 
