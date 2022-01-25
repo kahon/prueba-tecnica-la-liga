@@ -7,3 +7,11 @@ test("user login get the token", async () => {
     expect.objectContaining({ token: expect.any(String) })
   );
 });
+
+test("user login get error if user empty", async () => {
+  const userMock = { username: "", password: "" };
+  const userToken = await usersAPI.login(userMock);
+  expect(userToken).toEqual(
+    expect.objectContaining({ error: expect.any(String) })
+  );
+});
