@@ -6,7 +6,6 @@ import React from "react";
 const LoginPage = () => {
   return (
     <>
-      <Header />
       <ContainerCenter>
         <LoginForm />
       </ContainerCenter>
