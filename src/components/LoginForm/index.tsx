@@ -1,8 +1,9 @@
 import Button from "components/Button";
 import { H1 } from "components/H1";
 import InputText from "components/InputText";
+import useAuth from "hooks/useAuth";
 import React, { useRef } from "react";
-import { UserLogin, usersAPI } from "services/API/usersAPI";
+import { UserLogin } from "services/API/usersAPI";
 import styled from "styled-components";
 
 /**
@@ -27,6 +28,11 @@ const LoginForm = () => {
     username: useRef<HTMLInputElement | null>(null),
     password: useRef<HTMLInputElement | null>(null),
   };
+
+  /**
+   * Hook que usaremos para hacer el login
+   */
+  const auth = useAuth();
 
   /**
    * Obtiene el nombre de usuario del input
@@ -65,14 +71,7 @@ const LoginForm = () => {
    * hace el login
    */
   function login(): void {
-    usersAPI
-      .login(getUserForm())
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    auth.login(getUserForm());
   }
 
   return (
