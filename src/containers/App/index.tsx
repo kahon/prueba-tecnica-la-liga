@@ -17,7 +17,7 @@ const App = () => {
               type: ACTIONS.API.LOGIN_REQUEST,
               payload: {
                 user: {
-                  username: "eve.holt@reqres.in",
+                  username: "eve.hlt@reqres.in",
                   password: "cityslicka",
                 },
               },
