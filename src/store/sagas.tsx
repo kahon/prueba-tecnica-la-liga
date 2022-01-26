@@ -2,11 +2,9 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 import { usersAPI } from "services/API/usersAPI";
 import { ACTIONS } from "./actions";
 
-function* loginUser(action) {
+export function* loginUser(action) {
   try {
-    console.log(action.payload.user);
     const token = yield call(usersAPI.login, action.payload.user);
-    console.log(token);
     if (token.hasOwnProperty("error")) {
       const { error } = token;
       yield put({ type: ACTIONS.API.LOGIN_ERROR, error });

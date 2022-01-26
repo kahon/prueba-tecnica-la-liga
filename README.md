@@ -58,9 +58,15 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 
 #### ** Paquetes instalados **
 
+##### **En aplicación**
+
 - `typescript 3.9.10`: instalado para arreglar un bug del proyecto
 - `styled-components`: instalado por requisito del proyecto.
+
+##### **En desarrollo**
+
 - `redux-devtools-extension`: para poder hacer debugging del estado de redux
+- `@types/jest`: aunque estaba instalado en la aplicación (no en dependencias de desarrollo), no me detectaba el autocompletado en vscode. Así que lo he instalado en dependencia de desarrollo y ya me autocompleta el código. Siendo una librería de test, pienso que tiene más sentido que esté en las dependencias de desarrollo. -`tape` y `@types/tape`: facilita el testing de los saga con el deepEquals.
 
 #### **Estructuración del proyecto**
 
