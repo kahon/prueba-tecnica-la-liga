@@ -12,7 +12,7 @@ store.dispatch({ type: ACTIONS.API.RECOVER_LOCAL_TOKEN });
 const App = () => {
   return (
     <Provider store={store}>
-      <AppRouter store={store} />
+      <AppRouter />
     </Provider>
   );
 };
