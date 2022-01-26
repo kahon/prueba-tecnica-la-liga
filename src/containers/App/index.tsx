@@ -7,6 +7,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from "store";
 import { ACTIONS } from "store/actions";
 
+/**
+ * carga el token salvado en el localStorage en el store
+ */
+store.dispatch({ type: ACTIONS.API.RECOVER_LOCAL_TOKEN });
+
 const App = () => {
   return (
     <Provider store={store}>
