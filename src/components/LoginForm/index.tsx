@@ -1,4 +1,5 @@
 import Button from "components/Button";
+import { H1 } from "components/H1";
 import InputText from "components/InputText";
 import React, { useRef } from "react";
 import { UserLogin, usersAPI } from "services/API/usersAPI";
@@ -81,9 +82,20 @@ const LoginForm = () => {
         login();
       }}
     >
-      <InputText placeholder="username" ref={refs.username} />
-      <InputText placeholder="password" ref={refs.password} />
-      <Button>Iniciar Sesión</Button>
+      <H1>Iniciar sesión</H1>
+      <InputText
+        type="text"
+        placeholder="username"
+        defaultValue="eve.holt@reqres.in"
+        ref={refs.username}
+      />
+      <InputText
+        type="password"
+        placeholder="password"
+        defaultValue="cityslicka"
+        ref={refs.password}
+      />
+      <Button type="submit">Iniciar Sesión</Button>
     </StyledForm>
   );
 };
