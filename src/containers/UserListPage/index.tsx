@@ -4,6 +4,7 @@ import useAuth from "hooks/useAuth";
 import React, { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { ACTIONS } from "store/actions";
+import styled from "styled-components";
 import { Pagination } from "./Pagination";
 import { UserList } from "./UserList";
 
@@ -18,13 +19,18 @@ const UserListPage = () => {
     dispatch({ type: ACTIONS.API.USERS.GET_USERS, page: 1 });
   }, [dispatch]);
 
+  const Container = styled.div`
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+  `;
   return (
-    <div>
+    <Container>
       <H2>Lista de Usuarios</H2>
-      <Button onClick={auth.logout}>Cerrar Sesión</Button>
       <UserList users={data} />
       <Pagination totalPages={total_pages} page={page} />
-    </div>
+      <Button onClick={auth.logout}>Cerrar Sesión</Button>
+    </Container>
   );
 };
 

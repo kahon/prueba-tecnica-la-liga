@@ -9,7 +9,6 @@ const StyledWrapper = styled.div`
   background-color: aquamarine;
   align-items: center;
   align-content: center;
-  width: 100%;
 `;
 
 const Pagination = ({ totalPages, page }) => {
