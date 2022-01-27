@@ -11,6 +11,7 @@ const StyledWrapper = styled.div<{ actived: Boolean }>`
   margin-right: 1rem;
   padding: 1rem;
   border-radius: 3px;
+  border-color: ${(props) => props.theme.borderColor};
 
   &:hover {
     background-color: ${(props) => props.theme.active};

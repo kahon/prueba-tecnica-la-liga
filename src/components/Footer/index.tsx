@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   width: 100%;
+  height: 50px;
   display: flex;
   align-content: center;
   text-align: center;
-  margin: auto;
-  height: 50px;
   background-color: ${(props) => props.theme.secondary};
-  border-top: solid 1px;
+  margin: auto;
+  border-top: 3px;
+  border-color: ${(props) => props.theme.borderColor};
   margin-top: 1rem;
 `;
 const StyledInfo = styled.div`

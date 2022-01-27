@@ -16,7 +16,12 @@ const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider
-        theme={{ primary: "#F9E79F", secondary: "#F7DC6F", active: "yellow" }}
+        theme={{
+          primary: "#F9E79F",
+          secondary: "#F7DC6F",
+          active: "yellow",
+          borderColor: "#F8C471",
+        }}
       >
         <AppRouter />
       </ThemeProvider>

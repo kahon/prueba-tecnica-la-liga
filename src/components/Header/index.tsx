@@ -7,7 +7,8 @@ const StyledHeader = styled.header`
   padding-block: 0.5rem;
   display: flex;
   align-items: center;
-  border-bottom: solid 1px;
+  border-bottom: solid 4px;
+  border-color: ${(props) => props.theme.borderColor};
   background-color: ${(props) => props.theme.secondary};
 `;
 

@@ -7,11 +7,11 @@ const StyledWrapper = styled.div`
   height: 100px;
   margin: 1em;
   padding: 1em;
-  border: solid 1px;
+  border: solid 3px;
   border-radius: 3px;
   display: flex;
   flex-direction: row;
-  /* border-color: #ef985f; */
+  border-color: ${(props) => props.theme.borderColor};
   background-color: ${(props) => props.theme.secondary};
 
   &:hover {
