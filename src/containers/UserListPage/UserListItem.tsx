@@ -4,16 +4,42 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   width: 300px;
+  height: 100px;
   margin: 1em;
   padding: 1em;
-  border-style: dashed;
+  border: solid 1px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
 `;
 
-export function UserListItem(attribute: { user: UserItem }) {
+const StyledImg = styled.img`
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  counter-increment: none;
+`;
+
+const StyledInfoContent = styled.div`
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+`;
+const StyledName = styled.p`
+  font-weight: bold;
+`;
+
+export function UserListItem(attribute: { user: UserItem }): JSX.Element {
   const { user } = attribute;
   return (
     <StyledWrapper>
-      <p>{user.first_name}</p>
+      <StyledImg src={user.avatar} />
+      <StyledInfoContent>
+        <StyledName>{user.first_name + " " + user.last_name}</StyledName>
+        <p>{user.email}</p>
+      </StyledInfoContent>
     </StyledWrapper>
   );
 }

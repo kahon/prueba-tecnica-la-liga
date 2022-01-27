@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-  width: 100vw;
+  width: 100%;
+  padding-block: 0.5rem;
   display: flex;
   align-items: center;
   border-bottom: solid 1px;
