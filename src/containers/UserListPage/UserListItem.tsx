@@ -15,7 +15,7 @@ const StyledWrapper = styled.div`
   background-color: ${(props) => props.theme.secondary};
 
   &:hover {
-    background-color: ${(props) => props.theme.actived};
+    background-color: ${(props) => props.theme.active};
   }
 `;
 

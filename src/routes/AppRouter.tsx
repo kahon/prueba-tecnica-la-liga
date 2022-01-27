@@ -12,6 +12,7 @@ import UserListPage from "containers/UserListPage";
 import useAuth from "hooks/useAuth";
 import ConditionalRoute from "./ConditionalRoute";
 import styled, { ThemedCssFunction } from "styled-components";
+import Footer from "components/Footer";
 
 export const AppRouter = () => {
   const auth = useAuth();
@@ -42,6 +43,7 @@ export const AppRouter = () => {
           />
           <Route exact path="*" component={NotFoundPage} />
         </Switch>
+        <Footer />
       </StyledDiv>
     </Router>
   );
