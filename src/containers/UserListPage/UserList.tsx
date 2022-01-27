@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { UserListItem } from "./UserListItem";
 
 const StyledWrapper = styled.div`
-  padding: 1rem;
+  margin: auto;
 `;
 const UserList = (attributes: { users: Array<UserItem> }) => {
   const { users } = attributes;

@@ -8,6 +8,7 @@ const StyledWrapper = styled.div`
   padding: 1rem;
   align-items: center;
   align-content: center;
+  margin: auto;
 `;
 
 const Pagination = ({ totalPages, page }) => {
