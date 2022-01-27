@@ -6,7 +6,8 @@ const StyledHeader = styled.header`
   width: 100vw;
   display: flex;
   align-items: center;
-  border-bottom: solid 2px;
+  border-bottom: solid 1px;
+  background-color: #bbd5ed;
 `;
 
 const Header = () => {

@@ -5,12 +5,15 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div<{ actived: Boolean }>`
   background-color: ${(props: any) =>
-    props.actived === true ? "orange" : "transparent"};
+    props.actived === true ? "orange" : "white"};
+  text-decoration: ${(props: any) =>
+    props.actived === true ? "underline" : "none"};
   margin-right: 1rem;
   padding: 1rem;
 
   &:hover {
     background-color: yellow;
+    cursor: pointer;
   }
 `;
 

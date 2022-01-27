@@ -24,6 +24,7 @@ const UserListPage = () => {
     align-content: center;
     flex-direction: column;
   `;
+
   return (
     <Container>
       <H2>Lista de Usuarios</H2>
