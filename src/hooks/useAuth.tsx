@@ -1,22 +1,10 @@
-import { useState } from "react";
-import { useStore } from "react-redux";
-import { Store } from "redux";
+import { RootStateOrAny, useSelector, useStore } from "react-redux";
 import { UserLogin } from "services/API/usersAPI";
 import { ACTIONS } from "store/actions";
 
 export default function useAuth() {
   const store = useStore();
-  const [token, setToken] = useState(selectToken(store));
-
-  /**
-   * Selecciona el token que hay en el store de Redux
-   * @param store el store de Redux
-   * @returns devuelve el token almacenado en el store
-   */
-  function selectToken(store: Store): string {
-    return store.getState()["apiReducer"]["token"];
-  }
-
+  const token = useSelector((state: RootStateOrAny) => state.apiReducer.token);
   /**
    * Esta función realiza el login del usuario
    * @param user usuario con username y password para hacer el login
@@ -31,20 +19,21 @@ export default function useAuth() {
   };
 
   /**
-   * Comprueba si hay un usuario auténticado en la app
-   * @returns si el existe un usuario auténticado en la app
+   * Limpia la sesión del usuario en local
    */
-  const isAuth = (): Boolean => {
-    return Boolean(token);
+  const logout = (): void => {
+    store.dispatch({
+      type: ACTIONS.API.LOGOUT,
+    });
   };
 
   /**
-   * Se comprueba si el token cambia para actualizar
-   * el estado de la autenticación
+   * Comprueba si hay un usuario auténticado en la app
+   * @returns si el existe un usuario auténticado en la app
    */
-  store.subscribe(() => {
-    setToken(selectToken(store));
-  });
+  const isLogged = (): Boolean => {
+    return Boolean(token);
+  };
 
-  return { isAuth, login, token };
+  return { isLogged, login, logout, token };
 }
