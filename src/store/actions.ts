@@ -6,9 +6,3 @@ export const ACTIONS = {
     RECOVER_LOCAL_TOKEN: "RECOVER_LOCAL_TOKEN",
   },
 };
-
-export const loginRequest = () => ({ type: ACTIONS.API.LOGIN_REQUEST });
-export const loginReceivedToken = (data) => ({
-  type: ACTIONS.API.LOGIN_RECEIVED_TOKEN,
-  data,
-});
