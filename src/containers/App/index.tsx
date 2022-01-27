@@ -18,7 +18,6 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Loading show={isLoading} />
       <ThemeProvider
         theme={{
           primary: "#F9E79F",
@@ -28,6 +27,7 @@ const App = () => {
         }}
       >
         <AppRouter />
+        <Loading show={isLoading} />
       </ThemeProvider>
     </Provider>
   );
