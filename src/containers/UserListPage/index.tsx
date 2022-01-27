@@ -4,6 +4,7 @@ import useAuth from "hooks/useAuth";
 import React, { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { ACTIONS } from "store/actions";
+import { Pagination } from "./Pagination";
 import { UserList } from "./UserList";
 
 const UserListPage = () => {
@@ -21,7 +22,8 @@ const UserListPage = () => {
     <div>
       <H2>Lista de Usuarios</H2>
       <Button onClick={auth.logout}>Cerrar Sesión</Button>
-      <UserList users={data} page={page} totalPages={total_pages} />
+      <UserList users={data} />
+      <Pagination totalPages={total_pages} page={page} />
     </div>
   );
 };

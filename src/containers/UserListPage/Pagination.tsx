@@ -1,10 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 import { PaginationItem } from "./PaginationItem";
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: aquamarine;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+`;
 
 const Pagination = ({ totalPages, page }) => {
   const pages = Array.from(Array(totalPages).keys());
   return (
-    <div>
+    <StyledWrapper>
       {pages.map((e, index) => {
         return (
           <PaginationItem
@@ -14,7 +25,7 @@ const Pagination = ({ totalPages, page }) => {
           />
         );
       })}
-    </div>
+    </StyledWrapper>
   );
 };
 export { Pagination };
