@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { AppRouter } from "routes/AppRouter";
 import store from "store";
 import { ACTIONS } from "store/actions";
+import { ThemeProvider } from "styled-components";
 
 const App = () => {
   useEffect(() => {
@@ -14,7 +15,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <AppRouter />
+      <ThemeProvider
+        theme={{ primary: "#F9E79F", secondary: "#F7DC6F", active: "yellow" }}
+      >
+        <AppRouter />
+      </ThemeProvider>
     </Provider>
   );
 };

@@ -11,6 +11,12 @@ const StyledWrapper = styled.div`
   border-radius: 3px;
   display: flex;
   flex-direction: row;
+  /* border-color: #ef985f; */
+  background-color: ${(props) => props.theme.secondary};
+
+  &:hover {
+    background-color: ${(props) => props.theme.actived};
+  }
 `;
 
 const StyledImg = styled.img`
