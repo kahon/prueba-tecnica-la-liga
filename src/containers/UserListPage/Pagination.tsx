@@ -6,7 +6,6 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 1rem;
-  background-color: aquamarine;
   align-items: center;
   align-content: center;
 `;

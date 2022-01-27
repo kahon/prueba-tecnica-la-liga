@@ -1,15 +1,19 @@
 import React from "react";
 import { UserItem } from "services/API/usersAPI";
+import styled from "styled-components";
 import { UserListItem } from "./UserListItem";
 
+const StyledWrapper = styled.div`
+  padding: 1rem;
+`;
 const UserList = (attributes: { users: Array<UserItem> }) => {
   const { users } = attributes;
   return (
-    <div>
+    <StyledWrapper>
       {users?.map((user: UserItem) => (
         <UserListItem key={user.id} user={user} />
       ))}
-    </div>
+    </StyledWrapper>
   );
 };
 

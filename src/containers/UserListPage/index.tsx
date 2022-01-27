@@ -23,6 +23,8 @@ const UserListPage = () => {
     display: flex;
     align-content: center;
     flex-direction: column;
+    max-width: 700px;
+    margin: auto;
   `;
 
   return (
