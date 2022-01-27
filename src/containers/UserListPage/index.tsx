@@ -16,8 +16,10 @@ const UserListPage = () => {
   );
 
   useEffect(() => {
-    dispatch({ type: ACTIONS.API.USERS.GET_USERS, page: 1 });
-  }, [dispatch]);
+    if (!Boolean(data)) {
+      dispatch({ type: ACTIONS.API.USERS.GET_USERS, page: 1 });
+    }
+  }, []);
 
   const Container = styled.div`
     display: flex;

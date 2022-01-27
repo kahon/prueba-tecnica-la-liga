@@ -1,3 +1,5 @@
+import Loading from "components/Loading";
+import useLoading from "hooks/useLoading";
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import { AppRouter } from "routes/AppRouter";
@@ -6,6 +8,7 @@ import { ACTIONS } from "store/actions";
 import { ThemeProvider } from "styled-components";
 
 const App = () => {
+  const { isLoading } = useLoading();
   useEffect(() => {
     /**
      * carga el token salvado en el localStorage en el store
@@ -15,6 +18,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
+      <Loading show={isLoading} />
       <ThemeProvider
         theme={{
           primary: "#F9E79F",

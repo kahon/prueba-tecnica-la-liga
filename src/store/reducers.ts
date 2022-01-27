@@ -31,7 +31,7 @@ export function apiReducer(state = initialState, action) {
     case ACTIONS.API.USERS.GET_USERS:
       return { ...state, error: "", loading: true };
     case ACTIONS.API.USERS.RECEIVE_GET_USERS_DATA:
-      return { ...state, error: "", users: action.users };
+      return { ...state, loading: false, error: "", users: action.users };
   }
   return { ...state };
 }

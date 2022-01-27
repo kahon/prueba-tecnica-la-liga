@@ -1,9 +1,9 @@
 import { RootStateOrAny, useSelector } from "react-redux";
 
 const useLoading = () => {
-  const loading = useSelector(
+  const isLoading = useSelector(
     (state: RootStateOrAny) => state.apiReducer.loading
   );
-  return { loading };
+  return { isLoading };
 };
 export default useLoading;
