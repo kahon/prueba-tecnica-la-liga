@@ -5,7 +5,7 @@ let initialState = {
   token: "",
   error: "",
   // lista de usuarios a mostrar
-  users: "",
+  users: {},
 };
 const TOKEN_KEY = "LaLiga.loginToken";
 
