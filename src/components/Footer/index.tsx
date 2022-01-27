@@ -9,6 +9,8 @@ const StyledFooter = styled.footer`
   margin: auto;
   height: 50px;
   background-color: ${(props) => props.theme.secondary};
+  border-top: solid 1px;
+  margin-top: 1rem;
 `;
 const StyledInfo = styled.div`
   margin: auto;

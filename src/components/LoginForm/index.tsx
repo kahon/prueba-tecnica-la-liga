@@ -6,6 +6,11 @@ import React, { useRef } from "react";
 import { UserLogin } from "services/API/usersAPI";
 import styled from "styled-components";
 
+const StyledWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  padding-top: 3rem;
+`;
 /**
  * Estilo del form
  */
@@ -13,7 +18,10 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: auto;
+  padding: 1rem;
   max-width: 15rem;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.secondary};
 `;
 
 /**
@@ -75,27 +83,29 @@ const LoginForm = () => {
   }
 
   return (
-    <StyledForm
-      onSubmit={(e) => {
-        e.preventDefault();
-        login();
-      }}
-    >
-      <H1>Iniciar sesión</H1>
-      <InputText
-        type="text"
-        placeholder="username"
-        defaultValue="eve.holt@reqres.in"
-        ref={refs.username}
-      />
-      <InputText
-        type="password"
-        placeholder="password"
-        defaultValue="cityslicka"
-        ref={refs.password}
-      />
-      <Button type="submit">Iniciar Sesión</Button>
-    </StyledForm>
+    <StyledWrapper>
+      <StyledForm
+        onSubmit={(e) => {
+          e.preventDefault();
+          login();
+        }}
+      >
+        <H1>Iniciar sesión</H1>
+        <InputText
+          type="text"
+          placeholder="username"
+          defaultValue="eve.holt@reqres.in"
+          ref={refs.username}
+        />
+        <InputText
+          type="password"
+          placeholder="password"
+          defaultValue="cityslicka"
+          ref={refs.password}
+        />
+        <Button type="submit">Iniciar Sesión</Button>
+      </StyledForm>
+    </StyledWrapper>
   );
 };
 
