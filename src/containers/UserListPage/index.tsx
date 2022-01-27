@@ -16,7 +16,7 @@ const UserListPage = () => {
 
   useEffect(() => {
     dispatch({ type: ACTIONS.API.USERS.GET_USERS, page: 1 });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { Props } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { ACTIONS } from "store/actions";
 import styled from "styled-components";
