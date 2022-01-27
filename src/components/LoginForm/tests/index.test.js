@@ -6,12 +6,13 @@ import store from "store";
 
 describe("Test LoginForm", () => {
   test("debe renderizar el form", () => {
-    const { container } = render(
+    const { getAllByText } = render(
       <Provider store={store}>
         <LoginForm />
       </Provider>
     );
-    expect(Boolean(container.querySelector("form"))).toBe(true);
+    const element = getAllByText(/Iniciar Sesión/i);
+    expect(element[0]).toBeInTheDocument();
   });
   test("debe renderizar al menos un input", () => {
     const { container } = render(
