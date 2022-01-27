@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UserItem } from "services/API/usersAPI";
 import styled from "styled-components";
 import { UserListItem } from "./UserListItem";
@@ -8,6 +8,7 @@ const StyledWrapper = styled.div`
 `;
 const UserList = (attributes: { users: Array<UserItem> }) => {
   const { users } = attributes;
+
   return (
     <StyledWrapper>
       {users?.map((user: UserItem) => (

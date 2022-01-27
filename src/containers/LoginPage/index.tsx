@@ -1,5 +1,5 @@
 import LoginForm from "components/LoginForm";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -7,6 +7,10 @@ const StyledWrapper = styled.div`
   width: 100vw;
 `;
 const LoginPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <StyledWrapper>
       <LoginForm />
