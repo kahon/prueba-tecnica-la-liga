@@ -11,7 +11,7 @@ export default function useAuth() {
    */
   const login = (user: UserLogin): void => {
     store.dispatch({
-      type: ACTIONS.API.LOGIN_REQUEST,
+      type: ACTIONS.API.LOGIN.REQUEST,
       payload: {
         user,
       },
@@ -23,7 +23,7 @@ export default function useAuth() {
    */
   const logout = (): void => {
     store.dispatch({
-      type: ACTIONS.API.LOGOUT,
+      type: ACTIONS.API.LOGIN.LOGOUT,
     });
   };
 

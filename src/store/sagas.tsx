@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { usersAPI } from "services/API/usersAPI";
+import { GetUsersResponse, usersAPI } from "services/API/usersAPI";
 import { ACTIONS } from "./actions";
 
 export function* loginUser(action) {
@@ -7,10 +7,10 @@ export function* loginUser(action) {
     const token = yield call(usersAPI.login, action.payload.user);
     if (token.hasOwnProperty("error")) {
       const { error } = token;
-      yield put({ type: ACTIONS.API.LOGIN_ERROR, error });
+      yield put({ type: ACTIONS.API.LOGIN.ERROR, error });
       return;
     }
-    yield put({ type: ACTIONS.API.LOGIN_RECEIVED_TOKEN, token });
+    yield put({ type: ACTIONS.API.LOGIN.RECEIVED_TOKEN, token });
   } catch (e) {
     let error = "";
     if (typeof e === "string") {
@@ -19,14 +19,30 @@ export function* loginUser(action) {
     if (e instanceof Error) {
       error = e.message;
     }
-    yield put({ type: ACTIONS.API.LOGIN_ERROR, error });
+    yield put({ type: ACTIONS.API.LOGIN.ERROR, error });
   }
 }
 
+export function* getUsers(action) {
+  try {
+    const response: GetUsersResponse = yield call(
+      usersAPI.getUsers,
+      action.page
+    );
+    yield put({
+      type: ACTIONS.API.USERS.RECEIVE_GET_USERS_DATA,
+      users: response,
+    });
+  } catch (error) {}
+}
+
+function* getUsersSaga() {
+  yield takeLatest(ACTIONS.API.USERS.GET_USERS, getUsers);
+}
 function* loginUserSaga() {
-  yield takeLatest(ACTIONS.API.LOGIN_REQUEST, loginUser);
+  yield takeLatest(ACTIONS.API.LOGIN.REQUEST, loginUser);
 }
 
 export default function* rootSaga() {
-  yield all([loginUserSaga()]);
+  yield all([loginUserSaga(), getUsersSaga()]);
 }

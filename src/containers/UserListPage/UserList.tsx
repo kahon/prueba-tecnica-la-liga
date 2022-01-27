@@ -1,6 +1,7 @@
 import React from "react";
 import { UserItem } from "services/API/usersAPI";
-const UserList = (users: Array<UserItem>) => {
+const UserList = (att: { users: Array<UserItem> }) => {
+  const { users } = att;
   return (
     <div>
       {users.map((user: UserItem) => (

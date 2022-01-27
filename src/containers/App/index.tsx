@@ -9,7 +9,7 @@ const App = () => {
     /**
      * carga el token salvado en el localStorage en el store
      */
-    store.dispatch({ type: ACTIONS.API.RECOVER_LOCAL_TOKEN });
+    store.dispatch({ type: ACTIONS.API.LOGIN.RECOVER_LOCAL_TOKEN });
   }, []);
 
   return (
