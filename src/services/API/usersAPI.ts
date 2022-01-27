@@ -1,4 +1,7 @@
-const URLS = { LOGIN: "https://reqres.in/api/login" };
+const URLS = {
+  LOGIN: "https://reqres.in/api/login",
+  LIST_USERS: "https://reqres.in/api/users",
+};
 
 /**
  * Tipo de entrada de usuario en el login
@@ -8,11 +11,36 @@ interface UserLogin {
   password: string;
 }
 /**
- * Tipo de resultado devuelto por la petición de login
+ * Resultado devuelto por la petición de login
  */
 interface LoginResult {
   token?: string;
   error?: string;
+}
+
+/**
+ * Resultado devuelto por getUsers
+ */
+interface GetUsersResponse {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  support: {
+    url: string;
+    text: string;
+  };
+  data: Array<UserItem>;
+}
+/**
+ * Item del array data devuelto por getUsers
+ */
+interface UserItem {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
 }
 
 /**
@@ -36,7 +64,12 @@ const usersAPI = {
     const data: LoginResult = await response.json();
     return data;
   },
+  getUsers: async (page: number = 1): Promise<GetUsersResponse> => {
+    const response = await fetch(URLS.LIST_USERS + `?page=${page}`);
+    const data: GetUsersResponse = await response.json();
+    return data;
+  },
 };
 
-export type { UserLogin, LoginResult };
+export type { UserLogin, LoginResult, GetUsersResponse, UserItem };
 export { usersAPI, URLS };

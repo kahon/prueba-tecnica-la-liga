@@ -1,6 +1,6 @@
 import { usersAPI } from "../usersAPI";
 
-describe("test de userApi", () => {
+describe("test de userApi login", () => {
   test("login obtiene el token del usuario cuando es correcto.", async () => {
     const user = { username: "eve.holt@reqres.in", password: "cityslicka" };
     const userToken = await usersAPI.login(user);
@@ -24,4 +24,8 @@ describe("test de userApi", () => {
       expect.objectContaining({ error: expect.any(String) })
     );
   });
+});
+
+describe("usersAPI test getUsers", () => {
+  test("debería tomar los valores de la API", () => {});
 });
