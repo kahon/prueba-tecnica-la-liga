@@ -100,8 +100,4 @@ He creado una carpeta de services y dentro una carpeta API.
 
 He definido dos pruebas unitarias para comprobar que la función no falla.
 
-### **Funcionalidades a Desarrollar**
-
-#### Login
-
-1 API
+> si se introduce una contraseña distinta a la indicada el login también es success, pero esto es cosa del servidor que acepta cualquier contraseña para el usuario indicado.
