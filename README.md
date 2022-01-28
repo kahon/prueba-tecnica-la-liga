@@ -66,7 +66,7 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 ##### **En desarrollo**
 
 - `redux-devtools-extension`: para poder hacer debugging del estado de redux
-- `@types/jest`: aunque estaba instalado en la aplicación (no en dependencias de desarrollo), no me detectaba el autocompletado en vscode. Así que lo he instalado en dependencia de desarrollo y ya me autocompleta el código. Siendo una librería de test, pienso que tiene más sentido que esté en las dependencias de desarrollo. -`tape` y `@types/tape`: facilita el testing de los saga con el deepEquals.
+- `@types/jest`: aunque estaba instalado en la aplicación (no en dependencias de desarrollo), no me detectaba el autocompletado en vscode. Así que lo he instalado en dependencia de desarrollo y ya me autocompleta el código. Siendo una librería de test, pienso que tiene más sentido que esté en las dependencias de desarrollo.
 
 #### **Estructuración del proyecto**
 
@@ -100,13 +100,13 @@ He creado una carpeta de services y dentro una carpeta API.
 
 ### **Login**
 
-He realizado una vista para poder introducir el usuario y la contraseña. El botón "Iniciar Sesión" activa la acción ACTIONS.API.LOGIN.REQUEST que hace la petición a la API del login a través de la función usersAPI.login(user:UserLogin).
+He realizado una vista para poder introducir el usuario y la contraseña. El botón "Iniciar Sesión" activa la acción ACTIONS.API.LOGIN.REQUEST que hace la petición a la API del login a través de la función `usersAPI.login(user:UserLogin)`.
 
 Si el resultado es satisfactorio se ejecuta la acción `ACTIONS.API.LOGIN.RECEIVED_TOKEN.` Esta acción almacena en el `store` el token, en la variable `state.token`. Y además almacena en el `localStorage` del servidor el token.
 
 Si el resultado es error, se ejecuta la acción `ACTIONS.API.ERROR`. Esta almacen el error en la variable `state.error`.
 
-Si existe un `error` distinto al `''` se ejecutará un modal de error durante varios segundos. Componente ErrorMessage.
+Si existe un `error` distinto al `''` se ejecutará un modal de error durante varios segundos. Componente `ErrorMessage`.
 
 > si se introduce una contraseña distinta a la indicada el login también es success, pero esto es cosa del servidor que acepta cualquier contraseña para el usuario indicado.
 
@@ -116,7 +116,7 @@ Si existe un `error` distinto al `''` se ejecutará un modal de error durante va
 
 Una vez el Login es correcto, a través del Componente creado `CondicionalRoute` detectamos si existe un token y la routa se redirecciona a `/users`.
 
-Una vez entramos desde el `useEffect` del componente `UserList` comprobamos si hay datos ya guardados. En caso de que no se haya se hace la primera llama a la API a través de la acción `ACTIONS.API.USERS.GET_USERS`. Esta acción ejecuta la función `usersAPI.getUsers(page:number)` recibiendo si la petición es correcta una interfaz `GetUserResponse` con los datos (test creado).
+Una vez entramos desde el `useEffect` del componente `UserListPage` comprobamos si hay datos ya cargados en el store. Si no hay, se hace la primera llamada a la API a través de la acción `ACTIONS.API.USERS.GET_USERS` de la página 1. Esta acción ejecuta la función `usersAPI.getUsers(page:number)` que trae los datos con el interfaz `GetUserResponse` con los datos (test creado).
 
 La información de la petición se guarda en `state.users`. Este estado se muestra en el componente `UserListPage` accediendo a los valores del estado.
 
