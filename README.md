@@ -29,7 +29,7 @@ Al hacer el `npm install` me he encontrado con 13 vulnerabilidades altas y una c
 #### **Solucionar vulnerabilidades**
 
 - He ejecutado `npm audit fix --force` y sigue sin solucionarse.
-- Ejecuto `npm update` para comprobar si al actualizar los paquetes se solucionan las vulnerabilidades. Pero siguen sin solucionarse las vulnerabilidades.
+- Ejecuto `npm update` para comprobar si al actualizar los paquetes se solucionan las vulnerabilidades. Pero siguen sin solucionarse las vulnerabilidades. Así que dejo los paquetes en las versiones originales del proyecto.
   > Como es un proyecto de prueba vamos a considerar este paso como un paso que no es crítico. Si estuviesemos en un proyecto que se desarrolla para un entorno de producción habría que analizar mejor las versiones de los paquetes y comprobar donde se encuentran las vulnerabilidades y como podría afertar estas al proyecto. Y así también como podemos resolver estas.
 
 #### **Acciones en la preparación**
@@ -57,6 +57,8 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 > ERROR SOLUCIONADO instalando el paquete **3.9.10** de `typescript`.
 
 #### **Paquetes instalados**
+
+Aquí os indico los paquetes que he instalado, y por qué.
 
 ##### **En aplicación**
 
@@ -93,9 +95,15 @@ De este modo evito que hayan padding automáticos o márgenes automáticos que d
 
 #### **Servicios para la API**
 
-He creado una carpeta de services y dentro una carpeta API.
+He creado una carpeta de `services` y dentro una carpeta `API`.
 
-- userAPI: contiene todas las funciones para hacer las llamadas al login y a la Api de usuarios. Definida interfaz UserLogin para hacer las llamadas a la API. Y también tiene la función asíncrona getUsers que trae a los usuarios de la API de forma paginada.
+- `userAPI`: contiene todas las funciones para hacer las llamadas al `login` y a la Api de usuarios. Definida interfaz `UserLogin` para hacer las llamadas al `login`. La llamada a `login` devuelve un interface `LoginResult`. También tiene la función asíncrona `getUsers`, la cual tiene como parámetro el número de la página. Trae los usuarios de la API de la página indicada devolviendo un tipo `GetUserResponse`.
+
+He creado los respectivos test para cada función y comprobar así que no se rompen estas funciones.
+
+#### **Animaciones añadidas**
+
+Con el objetivo de jugar un poco con la librería de `animejs`, he añadido dos animaciones en el proyecto. Una es una animación en el título de la app, en el componente `Header` y otra es una animación en el componente `Loading`.
 
 ## **Funcionalides requeridas**
 
@@ -122,3 +130,5 @@ Una vez entramos desde el `useEffect` del componente `UserListPage` comprobamos 
 La información de la petición se guarda en `state.users`. Este estado se muestra en el componente `UserListPage` accediendo a los valores del estado.
 
 Si hay un error en la petición, entonces se llama a la acción `ACTIONS.API.ERROR`. Esta almacena el error en la variable `state.error`.
+
+Cuando la web se cierra sin Cerrar sesión, la próxima vez que se abra recuperará el token se redireccionará la entrada a `/users`.
