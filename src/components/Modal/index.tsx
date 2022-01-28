@@ -6,9 +6,10 @@ const StyledModalContainer = styled.div`
   position: fixed;
   z-index: 20;
   background: #fff;
-  width: 500px;
+  width: 300px;
   top: 50%;
   left: 50%;
+  border-radius: 3px;
   transform: translateX(-50%) translateY(-50%);
 `;
 const StyledModal = styled.div``;

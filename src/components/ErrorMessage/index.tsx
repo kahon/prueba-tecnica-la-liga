@@ -1,15 +1,21 @@
+import Button from "components/Button";
+import { H2 } from "components/H2";
 import Modal from "components/Modal";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const StyledWrapper = styled.div``;
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+`;
 const ErrorMessage = ({ error }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    console.log(error);
     if (Boolean(error)) {
-      setShow(false);
+      setShow(true);
     } else {
       setShow(false);
     }
@@ -18,7 +24,17 @@ const ErrorMessage = ({ error }) => {
   if (show) {
     return (
       <Modal>
-        <span>hola</span>
+        <StyledWrapper>
+          <H2>Error</H2>
+          <span>{error}</span>
+          <Button
+            onClick={() => {
+              setShow(false);
+            }}
+          >
+            Cerrar
+          </Button>
+        </StyledWrapper>
       </Modal>
     );
   } else {
