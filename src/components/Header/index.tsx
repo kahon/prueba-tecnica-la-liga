@@ -1,6 +1,7 @@
-import { H1 } from "components/H1";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { H1 } from "components/H1";
+import anime from "animejs";
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -13,9 +14,22 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
+  const animationRef: any | null = useRef(null);
+  useEffect(() => {
+    animationRef.current = anime({
+      targets: ".title_app",
+      scaleX: [
+        { value: 1.1, duration: 500 },
+        { value: 1, duration: 500 },
+      ],
+      loop: true,
+      easing: "easeInOutQuad",
+    });
+  }, []);
+
   return (
     <StyledHeader>
-      <H1>Prueba técnica de LaLiga</H1>
+      <H1 className="title_app">Prueba técnica de LaLiga</H1>
     </StyledHeader>
   );
 };

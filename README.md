@@ -62,6 +62,7 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 
 - `typescript 3.9.10`: instalado para arreglar un bug del proyecto
 - `styled-components`: instalado por requisito del proyecto.
+- `@types/animejs`: instalado para poder usar el animejs en el proyecto. Estaba instalado en las dependencias de desarrollo, pero este debe ir en las dependencias de la aplicación.
 
 ##### **En desarrollo**
 
