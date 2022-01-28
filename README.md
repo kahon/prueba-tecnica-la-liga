@@ -1,4 +1,4 @@
-# Prueba técnica React de LaLiga
+# **Prueba técnica React de LaLiga**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,11 +6,11 @@ Versión de Node: 12.16.1 o superior
 Versión de NPM: 6.13.4 o superiror
 Compatibilidad: ES6 Navegadores evergreen (Chrome, Firefox, Edge, Safari)
 
-## Instrucciones
+## **Instrucciones**
 
 - [Instrucciones](src/docs/laliga-prueba-tecnica-instrucciones.md)
 
-## Entorno de desarrollo local
+## **Entorno de desarrollo local**
 
 ### `npm install`
 
@@ -20,7 +20,7 @@ Para instalación de dependencias
 
 Entorno de desarrollo
 
-## Memoria
+## **Memoria**
 
 ### **Preparando entorno de desarrollo**
 
@@ -56,7 +56,7 @@ TypeScript error in C:/Users/Fer/Downloads/prueba-tecnica-front-v3/prueba-tecnic
 
 > ERROR SOLUCIONADO instalando el paquete **3.9.10** de `typescript`.
 
-#### ** Paquetes instalados **
+#### **Paquetes instalados**
 
 ##### **En aplicación**
 
@@ -94,10 +94,30 @@ De este modo evito que hayan padding automáticos o márgenes automáticos que d
 
 He creado una carpeta de services y dentro una carpeta API.
 
-- userAPI: contiene todas las funciones para hacer las llamadas al login y a la Api de usuarios. Definida interfaz UserLogin para hacer las llamadas a la API.
+- userAPI: contiene todas las funciones para hacer las llamadas al login y a la Api de usuarios. Definida interfaz UserLogin para hacer las llamadas a la API. Y también tiene la función asíncrona getUsers que trae a los usuarios de la API de forma paginada.
 
-##### **Login**
+## **Funcionalides requeridas**
 
-He definido dos pruebas unitarias para comprobar que la función no falla.
+### **Login**
+
+He realizado una vista para poder introducir el usuario y la contraseña. El botón "Iniciar Sesión" activa la acción ACTIONS.API.LOGIN.REQUEST que hace la petición a la API del login a través de la función usersAPI.login(user:UserLogin).
+
+Si el resultado es satisfactorio se ejecuta la acción `ACTIONS.API.LOGIN.RECEIVED_TOKEN.` Esta acción almacena en el `store` el token, en la variable `state.token`. Y además almacena en el `localStorage` del servidor el token.
+
+Si el resultado es error, se ejecuta la acción `ACTIONS.API.ERROR`. Esta almacen el error en la variable `state.error`.
+
+Si existe un `error` distinto al `''` se ejecutará un modal de error durante varios segundos. Componente ErrorMessage.
 
 > si se introduce una contraseña distinta a la indicada el login también es success, pero esto es cosa del servidor que acepta cualquier contraseña para el usuario indicado.
+
+> Cuando arranca la aplicación se ejecuta la acción `ACTIONS.API.LOGIN.RECOVER_TOKEN` la cual accede al `localStorage` y si existe un token lo almacena en el estado.
+
+### **Listado**
+
+Una vez el Login es correcto, a través del Componente creado `CondicionalRoute` detectamos si existe un token y la routa se redirecciona a `/users`.
+
+Una vez entramos desde el `useEffect` del componente `UserList` comprobamos si hay datos ya guardados. En caso de que no se haya se hace la primera llama a la API a través de la acción `ACTIONS.API.USERS.GET_USERS`. Esta acción ejecuta la función `usersAPI.getUsers(page:number)` recibiendo si la petición es correcta una interfaz `GetUserResponse` con los datos (test creado).
+
+La información de la petición se guarda en `state.users`. Este estado se muestra en el componente `UserListPage` accediendo a los valores del estado.
+
+Si hay un error en la petición, entonces se llama a la acción `ACTIONS.API.ERROR`. Esta almacena el error en la variable `state.error`.

@@ -22,7 +22,7 @@ export function* loginUser(action) {
     const token = yield call(usersAPI.login, action.payload.user);
     if (token.hasOwnProperty("error")) {
       const { error } = token;
-      yield put({ type: ACTIONS.API.LOGIN.ERROR, error });
+      yield put({ type: ACTIONS.API.ERROR, error });
       return;
     }
     yield put({ type: ACTIONS.API.LOGIN.RECEIVED_TOKEN, token });
