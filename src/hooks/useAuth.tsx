@@ -2,6 +2,15 @@ import { RootStateOrAny, useSelector, useStore } from "react-redux";
 import { UserLogin } from "services/API/usersAPI";
 import { ACTIONS } from "store/actions";
 
+/**
+ * Hook que maneja los estados de login del usuario
+ * @returns {
+ *  isLogged(): función que indica si el usuario está logueado.,
+ *  login(user:UserLogin): función que realiza el login a través de la máquina de estados.
+ *  logout(): funcion que realiza el cierre de sesión a través de la máquina de estados.
+ *  token: string : el token de autenficación recuperado desde el login.
+ * }
+ */
 export default function useAuth() {
   const store = useStore();
   const token = useSelector((state: RootStateOrAny) => state.apiReducer.token);
