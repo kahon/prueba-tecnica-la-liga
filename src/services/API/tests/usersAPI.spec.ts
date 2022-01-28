@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import { GetUsersResponse, usersAPI } from "../usersAPI";
 
 describe("test de userApi login", () => {
