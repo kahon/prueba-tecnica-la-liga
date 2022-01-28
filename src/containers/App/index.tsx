@@ -1,4 +1,6 @@
+import ErrorMessage from "components/ErrorMessage";
 import Loading from "components/Loading";
+import useError from "hooks/useError";
 import useLoading from "hooks/useLoading";
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
@@ -9,6 +11,8 @@ import { ThemeProvider } from "styled-components";
 
 const App = () => {
   const { isLoading } = useLoading();
+  const { error } = useError();
+
   useEffect(() => {
     /**
      * carga el token salvado en el localStorage en el store
@@ -27,6 +31,7 @@ const App = () => {
         }}
       >
         <AppRouter />
+        <ErrorMessage error={error} />
         <Loading show={isLoading} />
       </ThemeProvider>
     </Provider>
