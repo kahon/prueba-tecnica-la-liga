@@ -1,4 +1,5 @@
-import { usersAPI } from "../usersAPI";
+import { stringify } from "querystring";
+import { GetUsersResponse, usersAPI } from "../usersAPI";
 
 describe("test de userApi login", () => {
   test("login obtiene el token del usuario cuando es correcto.", async () => {
@@ -27,5 +28,12 @@ describe("test de userApi login", () => {
 });
 
 describe("usersAPI test getUsers", () => {
-  test("debería tomar los valores de la API", () => {});
+  test("debe devolver un resultado del tipo correcto.", async () => {
+    const result = await usersAPI.getUsers();
+    expect(Boolean(result.data)).toBe(true);
+    expect(Boolean(result.total)).toBe(true);
+    expect(Boolean(result.total_pages)).toBe(true);
+    expect(Boolean(result.page)).toBe(true);
+    expect(Boolean(result.support)).toBe(true);
+  });
 });
