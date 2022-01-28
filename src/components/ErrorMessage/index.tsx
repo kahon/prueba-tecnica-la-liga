@@ -1,4 +1,3 @@
-import Button from "components/Button";
 import { H2 } from "components/H2";
 import Modal from "components/Modal";
 import React, { useEffect, useState } from "react";
@@ -10,6 +9,11 @@ const StyledWrapper = styled.div`
   align-items: center;
   padding: 1rem;
 `;
+/**
+ * @param { error: string : mensaje de error que se desea mostrar}
+ * @returns Un componente Modal que muestra el mensaje de error durante
+ * varios segundos.
+ */
 const ErrorMessage = ({ error }) => {
   const SHOWED_TIME = 2000; // 2 segundos
   const [show, setShow] = useState(false);
