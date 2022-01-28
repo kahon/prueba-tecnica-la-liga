@@ -3,15 +3,12 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   position: fixed;
-  z-index: 999;
-  height: 2em;
-  width: 2em;
-  overflow: show;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  z-index: 20;
+  background: #fff;
+  width: 70px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 `;
 
 const StyleMessage = styled.div`
