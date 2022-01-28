@@ -1,7 +1,7 @@
-import { H2 } from "components/H2";
-import Modal from "components/Modal";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { H2 } from "components/H2";
+import Modal from "components/Modal";
 
 const StyledWrapper = styled.div`
   display: flex;

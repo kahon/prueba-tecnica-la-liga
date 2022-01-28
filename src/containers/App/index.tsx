@@ -1,13 +1,13 @@
+import React, { useEffect } from "react";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components";
 import ErrorMessage from "components/ErrorMessage";
 import Loading from "components/Loading";
 import useError from "hooks/useError";
 import useLoading from "hooks/useLoading";
-import React, { useEffect } from "react";
-import { Provider } from "react-redux";
 import { AppRouter } from "routes/AppRouter";
 import store from "store";
 import { ACTIONS } from "store/actions";
-import { ThemeProvider } from "styled-components";
 
 const App = () => {
   const { isLoading } = useLoading();

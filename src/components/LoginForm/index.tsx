@@ -1,10 +1,10 @@
+import React, { useRef } from "react";
+import styled from "styled-components";
 import Button from "components/Button";
 import { H1 } from "components/H1";
 import InputText from "components/InputText";
 import useAuth from "hooks/useAuth";
-import React, { useRef } from "react";
 import { UserLogin } from "services/API/usersAPI";
-import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   height: 100%;

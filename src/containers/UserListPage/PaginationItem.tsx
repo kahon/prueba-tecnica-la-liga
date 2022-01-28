@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { ACTIONS } from "store/actions";
 import styled from "styled-components";
+import { ACTIONS } from "store/actions";
 
 const StyledWrapper = styled.div<{ actived: Boolean }>`
   background-color: ${(props: any) =>

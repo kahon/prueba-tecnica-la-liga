@@ -1,6 +1,6 @@
-import LoginForm from "components/LoginForm";
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import LoginForm from "components/LoginForm";
 
 const StyledWrapper = styled.div`
   height: 100vh;

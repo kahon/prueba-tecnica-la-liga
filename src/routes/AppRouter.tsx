@@ -1,18 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
 } from "react-router-dom";
+import Footer from "components/Footer";
+import { Header } from "components/Header";
 import LoginPage from "containers/LoginPage";
 import NotFoundPage from "containers/NotFoundPage";
-import { Header } from "components/Header";
 import UserListPage from "containers/UserListPage";
-import useAuth from "hooks/useAuth";
 import ConditionalRoute from "./ConditionalRoute";
-import styled from "styled-components";
-import Footer from "components/Footer";
+import useAuth from "hooks/useAuth";
 
 const StyledDiv = styled.div`
   background-color: ${(props) => props.theme.primary};

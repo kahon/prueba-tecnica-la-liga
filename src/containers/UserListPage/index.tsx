@@ -1,10 +1,10 @@
+import React, { useEffect } from "react";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import Button from "components/Button";
 import { H2 } from "components/H2";
 import useAuth from "hooks/useAuth";
-import React, { useEffect } from "react";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { ACTIONS } from "store/actions";
-import styled from "styled-components";
 import { Pagination } from "./Pagination";
 import { UserList } from "./UserList";
 

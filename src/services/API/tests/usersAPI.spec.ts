@@ -1,4 +1,4 @@
-import { GetUsersResponse, usersAPI } from "../usersAPI";
+import { usersAPI } from "../usersAPI";
 
 describe("test de userApi login", () => {
   test("login obtiene el token del usuario cuando es correcto.", async () => {

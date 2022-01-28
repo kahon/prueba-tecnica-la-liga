@@ -1,6 +1,6 @@
 import React from "react";
-import { UserItem } from "services/API/usersAPI";
 import styled from "styled-components";
+import { UserItem } from "services/API/usersAPI";
 import { UserListItem } from "./UserListItem";
 
 const StyledWrapper = styled.div`

@@ -1,5 +1,5 @@
-import anime from "animejs";
 import React, { useEffect, useRef } from "react";
+import anime from "animejs";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`

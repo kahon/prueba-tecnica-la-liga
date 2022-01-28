@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { H1 } from "components/H1";
 import anime from "animejs";
+import { H1 } from "components/H1";
 
 const StyledHeader = styled.header`
   width: 100%;
