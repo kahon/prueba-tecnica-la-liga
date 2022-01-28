@@ -2,6 +2,21 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 import { GetUsersResponse, usersAPI } from "services/API/usersAPI";
 import { ACTIONS } from "./actions";
 
+/**
+ *
+ * @param error: es el error recibido de un catch
+ * @returns devuelve el mensaje del error
+ */
+function errorToMessage(error) {
+  let err = "";
+  if (typeof error === "string") {
+    err = error;
+  }
+  if (error instanceof Error) {
+    err = error.message;
+  }
+  return err;
+}
 export function* loginUser(action) {
   try {
     const token = yield call(usersAPI.login, action.payload.user);
@@ -12,14 +27,8 @@ export function* loginUser(action) {
     }
     yield put({ type: ACTIONS.API.LOGIN.RECEIVED_TOKEN, token });
   } catch (e) {
-    let error = "";
-    if (typeof e === "string") {
-      error = e;
-    }
-    if (e instanceof Error) {
-      error = e.message;
-    }
-    yield put({ type: ACTIONS.API.LOGIN.ERROR, error });
+    let error = errorToMessage(e);
+    yield put({ type: ACTIONS.API.ERROR, error });
   }
 }
 
@@ -33,7 +42,10 @@ export function* getUsers(action) {
       type: ACTIONS.API.USERS.RECEIVE_GET_USERS_DATA,
       users: response,
     });
-  } catch (error) {}
+  } catch (e) {
+    let error = errorToMessage(e);
+    yield put({ type: ACTIONS.API.ERROR, error });
+  }
 }
 
 function* getUsersSaga() {
