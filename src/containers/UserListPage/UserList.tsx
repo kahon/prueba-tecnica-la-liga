@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { UserItem } from "services/API/usersAPI";
 import styled from "styled-components";
 import { UserListItem } from "./UserListItem";

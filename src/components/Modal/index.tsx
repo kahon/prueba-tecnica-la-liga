@@ -1,4 +1,3 @@
-import { H2 } from "components/H2";
 import React from "react";
 import styled from "styled-components";
 

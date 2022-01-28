@@ -11,14 +11,14 @@ import { Header } from "components/Header";
 import UserListPage from "containers/UserListPage";
 import useAuth from "hooks/useAuth";
 import ConditionalRoute from "./ConditionalRoute";
-import styled, { ThemedCssFunction } from "styled-components";
+import styled from "styled-components";
 import Footer from "components/Footer";
 
+const StyledDiv = styled.div`
+  background-color: ${(props) => props.theme.primary};
+`;
 export const AppRouter = () => {
   const auth = useAuth();
-  const StyledDiv = styled.div`
-    background-color: ${(props) => props.theme.primary};
-  `;
   return (
     <Router>
       <Header />

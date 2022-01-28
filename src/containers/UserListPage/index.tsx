@@ -8,6 +8,13 @@ import styled from "styled-components";
 import { Pagination } from "./Pagination";
 import { UserList } from "./UserList";
 
+const StyledContainer = styled.div`
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  max-width: 700px;
+  margin: auto;
+`;
 const UserListPage = () => {
   const auth = useAuth();
   const dispatch = useDispatch();
@@ -19,23 +26,15 @@ const UserListPage = () => {
     if (!Boolean(data)) {
       dispatch({ type: ACTIONS.API.USERS.GET_USERS, page: 1 });
     }
-  }, []);
-
-  const Container = styled.div`
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    max-width: 700px;
-    margin: auto;
-  `;
+  }, [data, dispatch]);
 
   return (
-    <Container>
+    <StyledContainer>
       <H2>Lista de Usuarios</H2>
       <UserList users={data} />
       <Pagination totalPages={total_pages} page={page} />
       <Button onClick={auth.logout}>Cerrar Sesión</Button>
-    </Container>
+    </StyledContainer>
   );
 };
 
