@@ -11,11 +11,15 @@ const StyledWrapper = styled.div`
   padding: 1rem;
 `;
 const ErrorMessage = ({ error }) => {
+  const SHOWED_TIME = 2000; // 2 segundos
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (Boolean(error)) {
       setShow(true);
+      setTimeout(() => {
+        setShow(false);
+      }, SHOWED_TIME);
     } else {
       setShow(false);
     }
@@ -27,13 +31,6 @@ const ErrorMessage = ({ error }) => {
         <StyledWrapper>
           <H2>Error</H2>
           <span>{error}</span>
-          <Button
-            onClick={() => {
-              setShow(false);
-            }}
-          >
-            Cerrar
-          </Button>
         </StyledWrapper>
       </Modal>
     );
